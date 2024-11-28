@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto-Calculadora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="calculadora" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1>Calculadora</h1>
+        <p id="resultado">result</p>
+        <table>
+            <tr class="">
+                <td><button class="w-[50px] h-[50px] bg-gray-500">C</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">←</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">/</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">X</button></td>
+            </tr>
+            <tr class="">
+                <td><button class="w-[50px] h-[50px] bg-gray-500">7</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">8</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">9</button></td>
+                <td><button class="w-[50px] h-[50px] bg-gray-500">-</button></td>
+            </tr>
+            <tr class="">
+                <td><button class="w-[50px] h-[50px]">5</button></td>
+                <td><button class="w-[50px] h-[50px]">6</button></td>
+                <td><button class="w-[50px] h-[50px]">4</button></td>
+                <td><button class="w-[50px] h-[50px]">+</button></td>
+            </tr>
+            <tr >
+                <td><button class="w-[50px] h-[50px]">1</button></td>
+                <td><button class="w-[50px] h-[50px]">2</button></td>
+                <td><button class="w-[50px] h-[50px]">3</button></td>
+                <td rowspan="2"><button class="w-[50px] h-[100px]">=</button></td>
+            </tr>
+            <tr class="">
+                <td colspan="2"><button class="w-[100px] h-[50px]">0</button></td>
+                <td><button class="w-[50px] h-[50px]">.</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
