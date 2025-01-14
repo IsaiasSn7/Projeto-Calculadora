@@ -2,48 +2,106 @@
 <html lang="pt-BR">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Cutive+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto-Calculadora</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="index.css">
+    <style>
+        * {
+            font-family: "Ubuntu", sans-serif;
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-to-r from-cyan-500 to-blue-500">
-    <div id="calculadora" class="p-[10px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[10px] border-2 border-gray-500">
-        <h1>Calculadora</h1>
-        <p id="resultado">result</p>
+<body class="bg-gradient-to-r from-black via-black to-green-500">
+    <div class="w-[200px]"><img src="./logo-ligth-removebg-preview.png" alt="logo"></div>
+    <div id="calculadora"
+        class="p-[10px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[10px] border-2 border-gray-500">
+
+        <h1 class="ml-[5px] text-[16px]">Calculadora</h1>
+
+        <div class="flex justify-center items-center h-[60px]">
+            <p id="display" maxlength="10"
+                class="flex items-center justify-end px-[10px] bg-gray-900 w-[230px] h-[50px]  text-[25px] text-white color-white rounded-[5px]">
+            </p>
+        </div>
+
         <table>
             <tr>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">C</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">←</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">/</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">X</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="limpar()">C</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="limparUltimo()">←</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('/')">/</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-800 rounded-[5px] text-white hover:bg-gray-600"
+                        onclick="valor('*')">X</button></td>
             </tr>
             <tr>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">7</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">8</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">9</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">-</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('7')">7</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('8')">8</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('9')">9</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-800 rounded-[5px] text-white hover:bg-gray-600"
+                        onclick="valor('-')">-</button></td>
             </tr>
             <tr>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">4</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">5</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">6</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">+</button></td>
-            </tr>
-            <tr >
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">1</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">2</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">3</button></td>
-                <td class="p-[5px]" rowspan="2"><button class="w-[50px] h-[110px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">=</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('4')">4</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('5')">5</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('6')">6</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-800 rounded-[5px] text-white hover:bg-gray-600"
+                        onclick="valor('+')">+</button></td>
             </tr>
             <tr>
-                <td class="p-[5px]" colspan="2"><button class="w-[110px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">0</button></td>
-                <td class="p-[5px]"><button class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400">.</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('1')">1</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('2')">2</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('3')">3</button></td>
+                <td class="p-[5px]" rowspan="2"><button
+                        class="w-[50px] h-[110px] bg-gray-800 rounded-[5px] text-white hover:bg-gray-600"
+                        onclick="calcular()">=</button></td>
+            </tr>
+            <tr>
+                <td class="p-[5px]" colspan="2"><button
+                        class="w-[110px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('0')">0</button></td>
+                <td class="p-[5px]"><button
+                        class="w-[50px] h-[50px] bg-gray-500 rounded-[5px] text-white hover:bg-gray-400"
+                        onclick="valor('.')">.</button></td>
             </tr>
         </table>
     </div>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
